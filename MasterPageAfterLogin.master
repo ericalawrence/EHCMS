@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAfterLogin.master.cs" Inherits="MasterPageAfterLogin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+   
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+    </style>
+     
+    <title>EHCMS</title>
+    <link rel="stylesheet" href="css/style.css?id=8788">
+     <script src ="js/script.js"> </script>
+    <script src ="js/jquery.min.js"> </script>
+    <script src ="js/font.js"> </script>
+    <%--<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>--%>
+    <script type="text/javascript" >
+
+        function FillBg() {
+            //$("#aLogin").removeClass('btnLoginPopUp'); 
+        }
+    </script>
+
+</head>
+<body class="host_version">
+    <form id="form1" runat="server">
+    <div>
+        <header>
+    <h2> <a href ="Homepage.aspx" id ="aHomepage"> EHCMS </a></h2>
+    <nav class="navigation">
+       <%-- <a href = "default2.aspx" onlick="FillBg()" id="aHome">Home</a>--%>
+        <a href = "history2.aspx" id="aHistory"> History</a>
+        <a href = "#" id="aServices">Services</a>
+        <a href = "Contact.aspx" id="aContact">Contact</a>
+        <a href = "registration.aspx" id="aRegister"> New patient? Register! </a>
+        <a href = "default.aspx" id="aLogin" class="btnLoginPopUp">Login</a>
+        <%--<button class ="btnLoginPopUp"> Login</button>--%>
+    </nav>
+
+   </header>
+        <div style="min-height:600px;">
+        <asp:ContentPlaceHolder id="CphBody" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </div>
+    </div>
+ 
+<%--<Footer>--%>
+        
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-center">                   
+                    <p class="footer-company-name boxHeight">All Rights Reserved. &copy; 2024  Design By : Erica</a></p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end Footer -->
+        
+
+    
+	
+
+
+
+
+
+    </form>
+</body>
+</html>
