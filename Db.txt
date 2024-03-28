@@ -1,0 +1,68 @@
+--Create Database EHCMS
+Use EHCMS
+
+Create Table Users(
+RowID bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Title varchar (10) NOT NULL,
+Fname varchar(50) NOT NULL,
+Lname varchar(50) NOT NULL,
+Dob varchar(8) NOT NULL,
+Gender int NOT NULL,
+Address1 varchar(200) NOT NULL,
+Address2 varchar(200) NOT NULL,
+City varchar(50) NOT NULL,
+PostCode varchar(8) NOT NULL,
+IsBornInEngland bit NOT NULL,
+IsHaveAsthma bit NOT NULL,
+IsHaveDiabetes bit NOT NULL,
+IsHaveHeartDisease bit NOT NULL,
+IsHaveCancer bit NOT NULL,
+IsHaveStroke bit NOT NULL,
+IsHaveArthritis bit NOT NULL,
+DrinkingStatus int NOT NULL,
+SmokingStatus int NOT NULL,
+Email varchar(50) NOT NULL,
+Password varchar(50) NOT NULL,
+IsVerified Bit Default 0,
+IsDeleted Bit Default 0,
+EntryOn Datetime Default GetUTCDATE()
+)
+
+
+CREATE TABLE [dbo].[ERRORLOG](
+	[ERRID] [int] IDENTITY(1,1) NOT NULL,
+	[ERRTIME] [datetime] NOT NULL Default getutcdate(),
+	[LOCATION] [varchar](50) NOT NULL,
+	[EXMESSAGE] [varchar](500) NOT NULL,
+	[STACKTRACE] [varchar](3000) NOT NULL,
+	[LOCALINFO] [varchar](500) NOT NULL,
+	[USERID] [bigint]NOT NULL,
+	[EMAILED] [bit] NOT NULL  Default 0,
+	 PRIMARY KEY (ERRID),
+    FOREIGN KEY (USERID) REFERENCES Users(RowID)
+)
+
+CREATE TABLE [dbo].[LogMessage](
+	[MessageID] [int] IDENTITY(1,1) NOT NULL,
+	[Email_or_SMS] [int] NOT NULL,
+	[Sent_to] [varchar](100) NOT NULL,
+	[Message_text] [nvarchar](max) NULL,
+	[Date_TIME] [datetime] NOT NULL
+	)
+
+CREATE TABLE [dbo].[Visitor](
+	[LOGID] [int] IDENTITY(1,1) NOT NULL,
+	[STARTTIME] [datetime] NOT NULL,
+	[BROWSER] [varchar](50) NOT NULL,
+	[BROWSERVER] [varchar](10) NOT NULL,
+	[IP] [varchar](20) NOT NULL
+) 
+
+Create proc DropTables
+as 
+begin
+Drop Table Errorlog
+Drop table Users
+Drop table logMessage
+Drop table Visitor
+End
