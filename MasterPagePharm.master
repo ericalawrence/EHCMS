@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPagePharm.master.cs" Inherits="MasterPagePharm" %>
 
 <!DOCTYPE html>
 
@@ -7,15 +7,12 @@
     
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-   
-
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
     </style>
      
     <title>EHCMS</title>
-    <link rel="stylesheet" href="css/style.css?id=1811218">
+    <link rel="stylesheet" href="css/style.css?id=8788">
      <script src ="js/script.js"> </script>
     <script src ="js/jquery.min.js"> </script>
     <script src ="js/font.js"> </script>
@@ -33,12 +30,14 @@
     <form id="form1" runat="server">
     <div>
         <header>
-    <h2 class = "logo" > <a href ="homepage.aspx" id="aHomepage">EHCMS </a></h2>
+    <h2 class ="logo" > <a href ="HomepageAfterLoginPharm.aspx" id ="abHomepagePharm"> EHCMS </a></h2>  <%--  Error occurs when running --%>
     <nav class="navigation">
-        <%-- <a href = "default.aspx" onlick="FillBg()" id="aHome">Home</a> --%>
-        <a href = "registration.aspx" id="aRegister"> New patient? Register! </a>
-        <a href = "Login.aspx" id="aLogin" class="btnLoginPopUp">Login</a>
+       <%-- <a href = "default2.aspx" onlick="FillBg()" id="aHome">Home</a>--%>
+       <%-- <a href = "MedicineRequestsPharm.aspx" id="aMedicineRequestsPharm"> Medicine Requests </a>
+        <a href = "ProfilePharm.aspx" id="aProfilePharm">Profile</a>--%>
         <%--<button class ="btnLoginPopUp"> Login</button>--%>
+         <a href = "MedicineRequestsPharm.aspx" > Medicine Requests </a>
+        <a href = "ProfilePharm.aspx" >Profile</a>
     </nav>
 
    </header>

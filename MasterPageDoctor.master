@@ -1,21 +1,19 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageDoctor.master.cs" Inherits="MasterPageDoctor" %>
 
 <!DOCTYPE html>
 
-<html>
+
 <head runat="server">
     
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
    
-
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
      
     <title>EHCMS</title>
-    <link rel="stylesheet" href="css/style.css?id=1811218">
+    <link rel="stylesheet" href="css/style.css?id=8788">
      <script src ="js/script.js"> </script>
     <script src ="js/jquery.min.js"> </script>
     <script src ="js/font.js"> </script>
@@ -33,11 +31,12 @@
     <form id="form1" runat="server">
     <div>
         <header>
-    <h2 class = "logo" > <a href ="homepage.aspx" id="aHomepage">EHCMS </a></h2>
+    <h2 class ="logo" > <a href ="HomepageAfterLoginDoctor.aspx" id ="abHomepageDoctor"> EHCMS </a></h2> <%--  Error occurs when running --%>
     <nav class="navigation">
-        <%-- <a href = "default.aspx" onlick="FillBg()" id="aHome">Home</a> --%>
-        <a href = "registration.aspx" id="aRegister"> New patient? Register! </a>
-        <a href = "Login.aspx" id="aLogin" class="btnLoginPopUp">Login</a>
+       <%-- <a href = "default2.aspx" onlick="FillBg()" id="aHome">Home</a>--%>
+        <a href = "AppointmentRequests.aspx" id="aAppointmentRequests">Appointment Requests</a>
+        <a href = "MedicineRequests.aspx" id="aMedicineRequests"> Medicine Requests </a>
+        <a href = "ProfileDoctor.aspx" id="aProfileDoctor"> Profile </a>
         <%--<button class ="btnLoginPopUp"> Login</button>--%>
     </nav>
 
@@ -48,7 +47,7 @@
         </asp:ContentPlaceHolder>
             </div>
     </div>
- 
+ </form>
 <%--<Footer>--%>
         
     <div class="copyrights">
@@ -60,15 +59,3 @@
             </div>
         </div><!-- end container -->
     </div><!-- end Footer -->
-        
-
-    
-	
-
-
-
-
-
-    </form>
-</body>
-</html>
