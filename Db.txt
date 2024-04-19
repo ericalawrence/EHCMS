@@ -57,6 +57,39 @@ CREATE TABLE [dbo].[Visitor](
 	[BROWSERVER] [varchar](10) NOT NULL,
 	[IP] [varchar](20) NOT NULL
 ) 
+Create  Table Docs(
+docID bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
+userid bigint FOREIGN KEY (USERID) REFERENCES Users(RowID),
+Docname varchar(200) not null,
+isVerified bit default 0,
+isDeleted bit default 0
+)
+
+Create table AppointmentMaster
+(
+AppointmentID bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ DoctorID bigint FOREIGN KEY REFERENCES USers(RowID),
+ ApplicantID bigint FOREIGN KEY REFERENCES USers(RowID),
+AppointmentDate varchar(8) not null,
+isVerified bit default 0,
+isDeleted bit default 0,
+Description varchar (max),
+Status bigint default 0
+)
+
+Create table MedicineReq
+(
+ReqID bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ApplicantID bigint FOREIGN KEY REFERENCES USers(RowID),
+DoctorID bigint FOREIGN KEY REFERENCES USers(RowID),
+isPreLast6Month bit default 0,
+DrugID bigint  NOT NULL,
+RequestDate varchar(8) not null,
+isVerified bit default 0,
+isDeleted bit default 0,
+Description varchar (max),
+Status bigint default 0
+)
 
 Create proc DropTables
 as 

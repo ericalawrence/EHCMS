@@ -17,7 +17,11 @@ public partial class UserProfile : System.Web.UI.Page
         }
 
     }
-
+    protected void BtnLogout_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Redirect("login.aspx");
+    } 
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
         if (BtnEdit.Text == "Edit")

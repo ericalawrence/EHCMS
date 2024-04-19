@@ -71,7 +71,8 @@
       <p><strong>Date of Birth:</strong> <asp:Label ID="lblDob" runat="server" /></p>  
       <p><strong>Gender:</strong> <asp:Label ID="lblSex" runat="server" /></p> 
       <p><strong>Address:</strong><asp:Label ID="lblAddress" runat="server" /></p>
-      <p><strong>Current GP:</strong><asp:Label ID="lblCurrentGp" runat="server" /></p> 
+      <p><strong>Current GP:</strong><asp:Label ID="lblCurrentGp" runat="server" /></p>
+            <asp:Button ID="BtnLogout" Text ="Logout" runat="server" CssClass="logout-button" OnClick="BtnLogout_Click" />
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlEdit">
             <div class="profile-info">

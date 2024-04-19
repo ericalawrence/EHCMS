@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Homepage.aspx.cs" Inherits="Homepage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAfterLogin.master" AutoEventWireup="true" CodeFile="HomePageAfterLogin.aspx.cs" Inherits="HomePageAfterLoginNew" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphBody" Runat="Server">
-    <head>
-	<title>Medical Healthcare</title>
-	<style>
+    <style>
 		body {
 			font-family: Arial, sans-serif;
 			margin: 0;
@@ -127,9 +125,9 @@
 		}
 		
 	</style>
-</head>
-<body>
+	<body>
 	<main>
+
 		<section>
 			<h2>About Us</h2>
 			<div class="hometxtbox">
@@ -143,18 +141,18 @@
 		</section>
 		<section>
 			<h2>Book Appointments</h2>
-			<button>Book</button>
+			<button> <accesskey href ="appointments.aspx"> Book</button>
 		</section>
 		<nav>
 			<h2>Links</h2>
 			<ul>
-				<li><a href="#">Medicine</a></li>
-				<li><a href="#">Appointments</a></li>
-				<li><a href="#">History</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="medicine.aspx">Medicine</a></li>
+				<li><a href="appointments.aspx">Appointments</a></li>
+				<li><a href="history2.aspx">History</a></li>
+				<li><a href="Cpntact.aspx">Contact Us</a></li>
 			</ul>
 		</nav>
-	</main>
+	
 	<div class="policies">
 		<h2>Policies</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula eros, blandit nec, pulvinar a, mollis accumsan, felis. Nullam
@@ -165,12 +163,13 @@
 		<h2>Chatbot</h2>
 		<input type="text" placeholder="Ask a question...">
 		<div class="faq-buttons">
-			<button class="faq-button">What are your hours?</button>
+			<button class="faq-button">Can I track my prescriptions</button>
 			<button class="faq-button">Do you accept insurance?</button>
 			<button class="faq-button">What services do you offer?</button>
 			<button class="faq-button">How do I make an appointment?</button>
 		</div>
 	</div>
-</body>
+		</main>
+		</body>
+</asp:Content>
 
-    </asp:Content>

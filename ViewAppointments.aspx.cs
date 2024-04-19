@@ -21,10 +21,11 @@ public partial class ViewAppointments : System.Web.UI.Page
         
         Result lRes = new Result(Result.ResultCode.Success);
         Appointment aPp = new Appointment();
-        lRes = aPp.GetAppointment(Convert.ToInt16(Session["userid"]));
+        lRes = aPp.GetAppointmentForUSer(Convert.ToInt16(Session["userid"]));
         DataTable ldt = new DataTable();
         string ls_AppDate = "";
         DateTime dt;
+        Int16 li_status = 0;
         if (lRes.IsSuccess && lRes.ReturnTable!=null && lRes.ReturnTable.Rows.Count>0)
         {
 
@@ -35,18 +36,34 @@ public partial class ViewAppointments : System.Web.UI.Page
             for (int i = 0; i <= ldt.Rows.Count-1; i++)
             {
                 dt = Common.GetDob( ldt.Rows[i]["AppointmentDate"].ToString());
-                
-                if(dt<=System.DateTime.UtcNow.AddMinutes(-330))
+                li_status = Convert.ToInt16(ldt.Rows[i]["Status"]);
+                switch (li_status)
                 {
-                    ldt.Rows[i]["StatusEdited"] = "Attended";
+                    case 0:
+                        ldt.Rows[i]["StatusEdited"] = "Waiting For Approval"; 
+                        break;
+                    case 1:
+                        ldt.Rows[i]["StatusEdited"] = "Apporved";
+                        break;
+                    case 2:
+                        ldt.Rows[i]["StatusEdited"] = "Rejected";
+                        break;
+                    default:
+                        ldt.Rows[i]["StatusEdited"] = "N/A";
+                        break;
                 }
-                else
-                {
-                    ldt.Rows[i]["StatusEdited"] = "Upcoming";
+                //if(dt<=System.DateTime.UtcNow.AddMinutes(-330))
+                //{
+                //    ldt.Rows[i]["StatusEdited"] = "Attended";
+                //}
+                //else
+                //{
+                //    ldt.Rows[i]["StatusEdited"] = "Upcoming";
 
-                }
+                //}
+
                 ldt.Rows[i]["AppointmentDateEdited"] = dt.ToLongDateString();
-
+                
             }
             ldt.AcceptChanges();
             grdAppointmnet.DataSource = ldt;
